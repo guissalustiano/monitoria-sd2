@@ -34,3 +34,7 @@ Observe que podemos obter o mesmo resultado concatenando e truncando o resultado
 
 Em vhdl: `(memA_rdd<<7) or ir(6 downto 0)` ou `memA_rdd(24 downto 0) & ir(6 downto 0)`
 
+## Observação
+
+Lembre q no seu dataflow esses tamanhos são genericos, então muito dos valores
+aqui devem ser parametrizados. Você tamém pode usar a função resize da numeric_bit.
