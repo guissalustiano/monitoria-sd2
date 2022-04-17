@@ -8,11 +8,11 @@ fluxo de dados.
 
 Processadores geralmente seguem a seguinte ordem de intruções:
 ```mermaid
-  graph common_process_uc;
-      Fetch-->Decode;
-      Decode->Exec;
-      Exec->Write;
-      Write-->Fetch;
+stateDiagram-v2
+      Fetch --> Decode
+      Decode --> Exec
+      Exec --> Write
+      Write --> Fetch
 ```
 
 Como no caso do polistack tem instruções que levam mais de um ciclo precisamos
@@ -23,19 +23,20 @@ esperar a sua resposta.
 Um exemplo de como eu estou montando* minha maquina de estados da seguinte forma:
 
 ```mermaid
-  graph my_uc;
-      Fetch-->FetchWait;
-      FetchWait-->FetchWait;
-      FetchWait-->Decode;
-      Decode-->IM;
-      IM-->Write_Wait;
+stateDiagram-v2
+      Fetch-->FetchWait
+      FetchWait-->FetchWait
+      FetchWait-->Decode
+      Decode-->IM
+      IM-->Write_Wait
 
-      Decode-->NOP;
-      NOP-->Fetch;
+      Decode-->NOP
+      NOP-->Fetch
 
-      Decode-->Break;
+      Decode-->Break
+      Break-->Break
 
-      Write_Wait-->Fetch;
+      Write_Wait-->Fetch
 ```
 
 ## Detalhando cada estado
