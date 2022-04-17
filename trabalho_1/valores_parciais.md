@@ -33,7 +33,7 @@ ir[6:0]       =            010 1010
 Observe que podemos obter o mesmo resultado concatenando e truncando o resultado
 
 
-Em vhdl: `(memA_rdd ssl 7) or ir(6 downto 0)` ou `memA_rdd(24 downto 0) & ir(6 downto 0)`
+Em vhdl: `(memA_rdd sll 7) or ir(6 downto 0)` ou `memA_rdd(24 downto 0) & ir(6 downto 0)`
 
 ## signExt(ir[6:0])
 Quando estamos extendendo um numero para "caber" em uma bit_vector
